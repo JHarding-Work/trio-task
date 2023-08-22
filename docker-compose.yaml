@@ -1,17 +1,16 @@
 version: '3.8'
 services:
   mysql:
-    image: my-mysql/v1
-    build: ./db
+    image: il12564/trio-task-db
     environment:
       MYSQL_DATABASE: flask-db
       MYSQL_ROOT_PASSWORD: password123
     networks:
       - mynetwork
   flask-app:
-    build: ./flask-app
+    image: il12564/trio-task-app
     depends_on:
-      - flask-db
+      - mysql
     networks:
       - mynetwork
     environment:
