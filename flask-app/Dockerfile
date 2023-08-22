@@ -1,10 +1,11 @@
-#Use Python 3.6 as a base image
+FROM python:3.6
 
-# Copy contents into image
- 
-# install pip dependencies from requirements file
- 
-# Expose correct port
+COPY . .
 
-# Create an entrypoint
+RUN pip install -r requirements.txt
 
+ENV YOUR_NAME=James
+
+EXPOSE 5050
+
+ENTRYPOINT python3 app.py
