@@ -1,8 +1,10 @@
 version: '3.8'
 services:
   mysql:
-    image: mysql:latest
+    image: my-mysql/v1
+    build: ./db
     environment:
+      MYSQL_DATABASE: flask-db
       MYSQL_ROOT_PASSWORD: password123
     networks:
       - mynetwork
